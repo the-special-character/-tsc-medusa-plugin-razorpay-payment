@@ -1,0 +1,51 @@
+{
+  "name": "medusa-plugin-brand",
+  "version": "0.0.1",
+  "description": "A starter for Medusa plugins.",
+  "author": "Medusa (https://medusajs.com)",
+  "license": "MIT",
+  "files": [
+    ".medusa/server"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./workflows": "./.medusa/server/src/workflows/index.js",
+    "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./modules/*": "./.medusa/server/src/modules/*/index.js",
+    "./providers/*": "./.medusa/server/src/providers/*/index.js",
+    "./*": "./.medusa/server/src/*.js"
+  },
+  "keywords": [
+    "medusa",
+    "plugin",
+    "medusa-plugin-other",
+    "medusa-plugin",
+    "medusa-v2"
+  ],
+  "scripts": {
+    "build": "medusa plugin:build",
+    "dev": "medusa plugin:develop",
+    "prepublishOnly": "medusa plugin:build"
+  },
+  "peerDependencies": {
+    "@medusajs/admin-sdk": "2.4.0",
+    "@medusajs/cli": "2.4.0",
+    "@medusajs/framework": "2.4.0",
+    "@medusajs/test-utils": "2.4.0",
+    "@medusajs/medusa": "2.4.0",
+    "@medusajs/ui": "4.0.3",
+    "@medusajs/icons": "2.4.0",
+    "@mikro-orm/cli": "6.4.3",
+    "@mikro-orm/core": "6.4.3",
+    "@mikro-orm/knex": "6.4.3",
+    "@mikro-orm/migrations": "6.4.3",
+    "@mikro-orm/postgresql": "6.4.3",
+    "awilix": "^8.0.1",
+    "pg": "^8.13.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "yalcSig": "28db4e12f047e56fbf41ffee65c32806"
+}
