@@ -104,7 +104,7 @@ modules: [
         providers: [
           ...
           {
-            resolve: "@sgftech/payment-razorpay",
+            resolve: "@tsc-tech/medusa-plugin-payment-razorpay/providers/razorpay",
             id: "razorpay",
             options: {
               key_id:

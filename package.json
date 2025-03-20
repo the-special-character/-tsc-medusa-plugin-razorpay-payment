@@ -1,6 +1,6 @@
 {
   "name": "@tsc_tech/medusa-plugin-razorpay-payment",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A starter for Medusa plugins.",
   "author": "Medusa (https://medusajs.com)",
   "license": "MIT",
@@ -13,6 +13,10 @@
     "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
     "./providers/*": "./.medusa/server/src/providers/*/index.js",
     "./*": "./.medusa/server/src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-special-character/-tsc-medusa-plugin-razorpay-payment"
   },
   "keywords": [
     "medusa",
