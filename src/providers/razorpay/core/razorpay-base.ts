@@ -467,7 +467,9 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
   }
 
   async initiatePayment(
-    input: CreatePaymentProviderSession
+    input: CreatePaymentProviderSession & {
+      data: Record<string, unknown>;
+    }
   ): Promise<PaymentProviderError | PaymentProviderSessionResponse> {
     const intentRequestData = this.getPaymentIntentOptions();
     const { currency_code, amount } = input;
@@ -479,8 +481,6 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
       session_id?: string;
     };
 
-    console.log("initiate payment cart", JSON.stringify(input));
-
     if (!cart) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
@@ -491,8 +491,6 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
     const provider = this.options_.providers?.find(
       (p) => p.id == RazorpayBase.identifier
     );
-
-    console.log("provider", provider);
 
     if (!provider && !this.options_.key_id) {
       throw new MedusaError(
