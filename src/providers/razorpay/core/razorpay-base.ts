@@ -468,7 +468,7 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
 
   async initiatePayment(
     input: CreatePaymentProviderSession & {
-      data: Record<string, unknown>;
+      data?: Record<string, unknown>;
     }
   ): Promise<PaymentProviderError | PaymentProviderSessionResponse> {
     const intentRequestData = this.getPaymentIntentOptions();

@@ -34,7 +34,7 @@
 
 ## Compatibility
 
-This starter is compatible with versions >= 2.4.0 of `@medusajs/medusa`. 
+This starter is compatible with versions >= 2.5.0 of `@medusajs/medusa`. 
 
 # Payment-Razorpay
 
@@ -104,7 +104,7 @@ modules: [
         providers: [
           ...
           {
-            resolve: "@tsc-tech/medusa-plugin-payment-razorpay/providers/razorpay",
+            resolve: "@tsc_tech/medusa-plugin-payment-razorpay/providers/razorpay",
             id: "razorpay",
             options: {
               key_id:
