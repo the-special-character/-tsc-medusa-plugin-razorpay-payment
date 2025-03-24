@@ -162,12 +162,14 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
       const authorisedAttempts = attempts.items.filter(
         (i) => i.status == PaymentSessionStatus.AUTHORIZED
       );
+
       const totalAuthorised = authorisedAttempts.reduce((p, c) => {
         p += parseInt(`${c.amount}`);
         return p;
       }, 0);
+
       return totalAuthorised == paymentIntent.amount
-        ? PaymentSessionStatus.AUTHORIZED
+        ? PaymentSessionStatus.CAPTURED
         : PaymentSessionStatus.REQUIRES_MORE;
     }
   }
@@ -622,10 +624,7 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
   async capturePayment(
     paymentSessionData: Record<string, unknown>
   ): Promise<PaymentProviderError | Record<string, unknown>> {
-    const order_id = (paymentSessionData as unknown as Orders.RazorpayOrder).id;
-    console.log("paymentSessionData", paymentSessionData);
-
-    console.log("order_id", order_id);
+    const order_id = (paymentSessionData?.data as any)?.data?.id;
 
     const paymentsResponse = await this.razorpay_.orders.fetchPayments(
       order_id

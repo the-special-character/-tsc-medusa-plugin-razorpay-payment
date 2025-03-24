@@ -1,6 +1,6 @@
 {
   "name": "@tsc_tech/medusa-plugin-razorpay-payment",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A starter for Medusa plugins.",
   "author": "Medusa (https://medusajs.com)",
   "license": "MIT",
