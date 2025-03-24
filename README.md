@@ -34,7 +34,7 @@
 
 ## Compatibility
 
-This starter is compatible with versions >= 2.5.0 of `@medusajs/medusa`. 
+This starter is compatible with versions >= 2.4.0 of `@medusajs/medusa`. 
 
 # Payment-Razorpay
 
@@ -104,7 +104,7 @@ modules: [
         providers: [
           ...
           {
-            resolve: "@tsc_tech/medusa-plugin-payment-razorpay/providers/razorpay",
+            resolve: "@tsc-tech/medusa-plugin-razorpay-payment/providers/razorpay",
             id: "razorpay",
             options: {
               key_id:
@@ -174,7 +174,6 @@ export const RazorpayPaymentButton = ({
 
   const [orderData, setOrderData] = useState({ id: "" })
 
-  console.log("cartPaymenButton", cart.payment_collection)
 
   console.log(`session_data: ` + JSON.stringify(session))
   const onPaymentCompleted = async () => {
@@ -291,7 +290,7 @@ add
 
 ```
 export const isRazorpay = (providerId?: string) => {
-  return providerId?.startsWith("pp_razorpay")
+  return providerId?.startsWith("pp_razorpay_razorpay")
 }
 
 // and the following to the list
@@ -310,7 +309,7 @@ step 4.add into the payment element <next-starter>/src/modules/checkout/componen
 
 first 
 ```
-import import {RazorpayPaymentButton} from "./razorpay-payment-button"
+import {RazorpayPaymentButton} from "./razorpay-payment-button"
 ```
 then
 ```

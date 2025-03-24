@@ -175,8 +175,7 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
   async getPaymentStatus(
     paymentSessionData: Record<string, unknown>
   ): Promise<PaymentSessionStatus> {
-    const id = paymentSessionData.id as string;
-    const orderId = paymentSessionData.order_id as string;
+    const id = (paymentSessionData?.data as any)?.id;
     let paymentIntent: Orders.RazorpayOrder;
     let paymentsAttempted: {
       entity: string;
@@ -188,8 +187,8 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
       paymentsAttempted = await this.razorpay_.orders.fetchPayments(id);
     } catch (e) {
       this.logger.warn("received payment data from session not order data");
-      paymentIntent = await this.razorpay_.orders.fetch(orderId);
-      paymentsAttempted = await this.razorpay_.orders.fetchPayments(orderId);
+      paymentIntent = await this.razorpay_.orders.fetch(id);
+      paymentsAttempted = await this.razorpay_.orders.fetchPayments(id);
     }
 
     switch (paymentIntent.status) {
@@ -624,6 +623,10 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
     paymentSessionData: Record<string, unknown>
   ): Promise<PaymentProviderError | Record<string, unknown>> {
     const order_id = (paymentSessionData as unknown as Orders.RazorpayOrder).id;
+    console.log("paymentSessionData", paymentSessionData);
+
+    console.log("order_id", order_id);
+
     const paymentsResponse = await this.razorpay_.orders.fetchPayments(
       order_id
     );
