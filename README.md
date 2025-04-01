@@ -313,7 +313,7 @@ import {RazorpayPaymentButton} from "./razorpay-payment-button"
 ```
 then
 ```
-case "razorpay":
+case isRazorpay(paymentSession?.provider_id):
          return <RazorpayPaymentButton session={paymentSession} notReady={notReady} cart={cart} />
 ```
 
