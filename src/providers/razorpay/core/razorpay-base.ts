@@ -502,7 +502,8 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
     }
     const sessionNotes = notes ?? {};
     let toPay = getAmountFromSmallestUnit(
-      Math.round(parseInt(amount.toString())),
+      amount,
+      // Math.round(parseInt(amount.toString())),
       currency_code.toUpperCase()
     );
     toPay = currency_code.toUpperCase() == "INR" ? toPay * 100 * 100 : toPay;
