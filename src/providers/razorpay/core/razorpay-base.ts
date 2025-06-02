@@ -528,7 +528,7 @@ abstract class RazorpayBase extends AbstractPaymentProvider {
   async capturePayment(
     paymentSessionData: CapturePaymentInput
   ): Promise<CapturePaymentOutput> {
-    const order_id = (paymentSessionData?.data as any)?.data?.id;
+    const order_id = (paymentSessionData?.data as any)?.data?.data?.id;
 
     const paymentsResponse = await this.razorpay_.orders.fetchPayments(
       order_id
